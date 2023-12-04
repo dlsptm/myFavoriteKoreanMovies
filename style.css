@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(16, 16, 16);
+  color: #f4f2f2;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin: 50px;
+}
+
+.movies-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  
+}
+
+article {
+  width: 300px;
+  margin: 50px auto;
+  
+}
+
+img {
+  border-radius: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+figcaption, .header {
+  margin: 10px 0;
+
+}
+
+span {
+  font-weight: 700;
+}
