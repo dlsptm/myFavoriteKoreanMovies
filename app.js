@@ -24,6 +24,7 @@ const displayMovies = async (movieList) => {
   for (const movieInfo of movieList) {
     const {title, year} = movieInfo;
     const movie = await getMovie(title, year);
+    console.log(movie)
     try {
       const article = document.createElement('article');
       article.innerHTML = `
@@ -34,6 +35,7 @@ const displayMovies = async (movieList) => {
         <figcaption>${movie.Year}</figcaption></div>
         <figcaption><span>Main Actors</span> : ${movie.Actors}</figcaption>
         <figcaption><span>Director</span> : ${movie.Director}</figcaption>
+        <figcaption><span>Genre</span> : ${movie.Genre}</figcaption>
         <figcaption>${movie.Plot}</figcaption>
       </figure>
       `;
