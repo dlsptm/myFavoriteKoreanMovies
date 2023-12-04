@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
 }
 
 body {
@@ -12,12 +13,16 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1 {
-  text-align: center;
-  margin: 50px;
+a {
+  color: #f4f2f2;
+  text-decoration: none;
 }
 
-.movies-container {
+h1 {
+  text-align: center;
+}
+
+main {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -42,27 +47,42 @@ img {
 
 figcaption, .header {
   margin: 10px 0;
-
 }
 
 span {
   font-weight: 700;
 }
 
+footer, h1 {
+  background: rgb(20, 87, 102);
+}
+
+footer ul {
+  font-size: 1.5rem;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer ul, h1 {
+  padding: 50px;
+} 
+
 @media only screen and (max-width: 1024px ) {
-  .movies-container {
+  main {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media only screen and (max-width: 768px ) {
-  .movies-container {
+  main {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media only screen and (max-width: 425px ) {
-  .movies-container {
+  main {
     grid-template-columns: repeat(1, 1fr);
   }
 }

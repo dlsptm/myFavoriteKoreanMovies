@@ -17,14 +17,12 @@ const getMovie = async (title, year) => {
 };
 
 const displayMovies = async (movieList) => {
-  const moviesContainer = document.createElement('div');
-  moviesContainer.classList.add('movies-container');
-  document.body.appendChild(moviesContainer);
+  const main = document.querySelector('main');
+
 
   for (const movieInfo of movieList) {
     const {title, year} = movieInfo;
     const movie = await getMovie(title, year);
-    console.log(movie)
     try {
       const article = document.createElement('article');
       article.innerHTML = `
@@ -39,7 +37,7 @@ const displayMovies = async (movieList) => {
         <figcaption>${movie.Plot}</figcaption>
       </figure>
       `;
-      moviesContainer.appendChild(article);
+      main.appendChild(article);
     } catch(error) {
       console.error(`Error retrieving movie "${movieTitle}": ${movie.Error}`);
     }
