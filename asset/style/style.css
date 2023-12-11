@@ -6,8 +6,8 @@
 }
 
 body {
-  background: rgb(16, 16, 16);
-  color: #f4f2f2;
+  background: rgb(245, 245, 245);
+  color: #201f1f;
   width: 100%;
   height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -22,17 +22,15 @@ h1 {
   text-align: center;
 }
 
-main {
+.movies-container {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  
 }
 
 article {
   width: 300px;
   margin: 50px auto;
-  
 }
 
 img {
@@ -54,7 +52,7 @@ span {
 }
 
 footer, h1 {
-  background: rgb(20, 87, 102);
+  background: #9E829C;
 }
 
 footer ul {
@@ -70,19 +68,19 @@ footer ul, h1 {
 } 
 
 @media only screen and (max-width: 1024px ) {
-  main {
+  .movies-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media only screen and (max-width: 768px ) {
-  main {
+  .movies-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media only screen and (max-width: 425px ) {
-  main {
+  .movies-container {
     grid-template-columns: repeat(1, 1fr);
   }
 }
