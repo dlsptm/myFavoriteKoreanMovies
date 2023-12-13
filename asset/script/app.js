@@ -25,9 +25,8 @@ const displayMovies = async (movieList,elem) => {
   elem.appendChild(movieContainer)
 
   for (const movieInfo of movieList) {
-    const {id, title, year} = movieInfo;
+    const {id, title, year, url} = movieInfo;
     const movie = await getMovie(title, year);
-    console.log(movie)
     try {
       const article = document.createElement('article');
       article.innerHTML = `
@@ -56,7 +55,7 @@ const displayMovies = async (movieList,elem) => {
 
 const movieList = [
   {id: 1, title: 'A tale of two sisters', year: '2003' },
-  {id: 2, title: 'Gonjiam', year: '2018' },
+  {id: 2, title: 'Gonjiam', year: '2018', url: 'https://kissasian.lu/Drama/Gonjiam-Haunted-Asylum/Movie?id=37303' },
   {id: 3, title: 'Deranged', year: '2012' },
   {id: 4, title: 'The Wailing', year: '2016'},
   {id: 5, title: 'lady vengeance', year: '2005'},
@@ -123,11 +122,28 @@ const movieList = [
   {id: 66, title: 'Dark figure of crime', year: '2018'},
   {id: 67, title: 'The attorney', year: '2013'},
   {id: 68, title: 'Scandal Makers', year: '2008'},
+  {id: 69, title: 'Okay Madam', year: '2020'},
+  {id: 70, title: 'Sleep', year: '2023'},
+  {id: 71, title: 'Take point', year: '2018'},
+  {id: 72, title: 'A Violent Prosecutor', year: '2016'},
+  {id: 73, title: 'Train to Busan', year: '2016'},
+  {id: 74, title: 'Forgotten', year: '2017'},
+  {id: 75, title: 'Oldboy', year: '2003'},
+  {id: 76, title: 'Hwayi: A Monster Boy', year: '2013'},
+  {id: 77, title: 'Monster', year: '2014'},
+  {id: 78, title: 'The Host', year: '2006'},
+  {id: 79, title: 'Target', year: '2023'},
+  {id: 80, title: 'Concrete Utopia', year: '2023'},
+  {id: 81, title: 'Death Bell', year: '2008'},
+  {id: 82, title: 'Don\'t cry mommy', year: '2012'},
+  {id: 83, title: 'Missing Woman', year: '2016'},
+  {id: 84, title: 'The Outlaws', year: '2017'},
+  {id: 85, title: 'The Neighbors', year: '2012'},
 ];
 
 
 localStorage.setItem('movieList', JSON.stringify(movieList));
 
-if(main) { console.log(main)
+if(main) {
   displayMovies(movieList, main)};
 

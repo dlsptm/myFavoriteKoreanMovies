@@ -1,24 +1,16 @@
-console.log(movieList)
-
 const urlParams = new URLSearchParams(window.location.search);
-
 const id = urlParams.get('id')
-if(id) {
-  console.log(typeof id)
-  const [{title,year}] = movieList.filter(movie => movie.id === +id )
-  console.log(title, year)
 
-  const movie = getMovie(title,year)
-  movie.then(res => {
-    displayMovie(res)
-  })
 
-}
+const [{title,year}] = movieList.filter(movie => movie.id === +id )
+const movie = getMovie(title,year)
+movie.then(res => {
+  displayMovie(res)
+})
 
 const displayMovie = async (movie) => {
   const {Title, Poster, Year, Actors, Director, Genre, Plot, Runtime, Awards, imdbRating } = movie
 
-  console.log(movie)
 
     const movieContainer = document.querySelector('.movie-container');
       movieContainer.innerHTML = `
