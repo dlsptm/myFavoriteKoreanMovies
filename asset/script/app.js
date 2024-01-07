@@ -27,7 +27,7 @@ const displayMovies = async (movieList, page) => {
 
 
   for (const movieInfo of moviesToDisplay) {
-    const {title, year, } = movieInfo;
+    const {title, year } = movieInfo;
     const movie = await getMovie(title, year);
     try {
       const article = document.createElement('article');
@@ -57,7 +57,7 @@ const displayMovies = async (movieList, page) => {
 
 const movieList = [
   {id: 1, title: 'A tale of two sisters', year: '2003' },
-  {id: 2, title: 'Gonjiam', year: '2018', url: 'https://kissasian.lu/Drama/Gonjiam-Haunted-Asylum/Movie?id=37303' },
+  {id: 2, title: 'Gonjiam', year: '2018' },
   {id: 3, title: 'Deranged', year: '2012' },
   {id: 4, title: 'The Wailing', year: '2016'},
   {id: 5, title: 'lady vengeance', year: '2005'},

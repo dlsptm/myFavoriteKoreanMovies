@@ -26,6 +26,8 @@ const displayMovie = async (movie) => {
             <figcaption><span>Awards</span>: ${Awards}</figcaption>
             <figcaption><span>Rating</span>: ${imdbRating}</figcaption>
             <figcaption>${Plot}</figcaption>
-            </div>
+          </div>
         </figure>`;
 } 
+
+
