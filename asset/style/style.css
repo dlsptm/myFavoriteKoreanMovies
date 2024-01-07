@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800;900&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
@@ -6,28 +9,35 @@
 }
 
 body {
-  background: rgb(245, 245, 245);
+  background: rgb(255, 255, 255);
   color: #201f1f;
   width: 100%;
   height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+  font-family: 'Poppins', sans-serif;}
 
 a {
-  color: #9E829C;
+  color: #201f1f;
   text-decoration: none;
 }
+
 a:hover {
-  color: #b092ae;
+  color: #1c0b6a;
   text-decoration: none;
 }
 
 header, footer {
-  background: #201f1f;
+  background: #EDF0FF;
 }
 
+
 h1 {
+  color: #201f1f;
   text-align: center;
+  text-transform: uppercase;
+}
+
+.title {
+  color: #3e64ff;
 }
 
 .movies-container {
@@ -49,6 +59,10 @@ article:hover {
 
 img {
   border-radius: 10px;
+}
+
+h2 {
+  color: #3e64ff;
 }
 
 .header {

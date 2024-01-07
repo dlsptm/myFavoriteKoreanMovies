@@ -25,7 +25,7 @@ const displayMovies = async (movieList,elem) => {
   elem.appendChild(movieContainer)
 
   for (const movieInfo of movieList) {
-    const {id, title, year, url} = movieInfo;
+    const {title, year, } = movieInfo;
     const movie = await getMovie(title, year);
     try {
       const article = document.createElement('article');
