@@ -18,12 +18,13 @@ body {
 a {
   color: #201f1f;
   text-decoration: none;
+  cursor: pointer;
   transition: all 0.2s;
 }
 
-a:hover {
-  color: #beccff;
+header a:hover {
   text-decoration: none;
+  color: #d7d4d4;
 }
 
 header, footer {
@@ -44,7 +45,7 @@ h1 {
   text-decoration:underline;
 }
 
-.movies-container {
+main {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -83,6 +84,38 @@ span {
   font-weight: 700;
 }
 
+.pagination-container {
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pagination-container button{
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pagination-container button:hover{
+  background: #3e64ff;
+  color: aliceblue;
+}
+
+.current-page {
+  background: #3e64ff;
+  color: aliceblue;
+}
+
+.pages {
+  background: #beccff76;
+  color: #201f1f;
+}
+
 
 footer ul {
   font-size: 1.5rem;
@@ -98,13 +131,13 @@ footer a:hover {
 
 
 @media only screen and (max-width: 2560px ) {
-  .movies-container {
-    grid-template-columns: repeat(5, 1fr);
+  main {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media only screen and (max-width: 1440px ) {
-  .movies-container {
+  main {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -114,13 +147,33 @@ footer a:hover {
     font-size: 2.2rem;
   }
 
-  .movies-container {
+  main {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  
 }
 
 @media only screen and (max-width: 425px ) {
-  .movies-container {
+  main {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .pagination-container {
+    margin: 20px 0;
+    gap: 10px;
+  }
+
+}
+
+@media only screen and (max-width: 320px ) {
+  main {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .pagination-container {
+    margin: 20px 0;
+    gap: 5px;
+  }
+
 }

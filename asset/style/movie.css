@@ -24,6 +24,9 @@ figure {
   font-size: 2rem;
 }
 
+
+
+
 @media only screen and (max-width: 943px ) {
   figure {
     display: flex;

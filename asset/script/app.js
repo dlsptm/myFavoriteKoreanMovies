@@ -1,5 +1,7 @@
 
 const main = document.querySelector('main');
+const itemPerPage = 12;
+let currentPage = 1;
 
 const getMovie = async (title, year) => {
   const key = '95a533bd';
@@ -18,13 +20,13 @@ const getMovie = async (title, year) => {
   }
 };
 
-const displayMovies = async (movieList,elem) => {
-  const movieContainer = document.createElement('div')
-  
-  movieContainer.classList.add('movies-container');
-  elem.appendChild(movieContainer)
+const displayMovies = async (movieList, page) => {
+  const startIndex = (page - 1) * itemPerPage;
+  const endIndex = startIndex + itemPerPage;
+  const moviesToDisplay = movieList.slice(startIndex, endIndex);
 
-  for (const movieInfo of movieList) {
+
+  for (const movieInfo of moviesToDisplay) {
     const {title, year, } = movieInfo;
     const movie = await getMovie(title, year);
     try {
@@ -42,7 +44,7 @@ const displayMovies = async (movieList,elem) => {
       </figure>
       `;
 
-      movieContainer.appendChild(article);
+      main.appendChild(article);
       article.addEventListener('click', () => {
         window.location.href = `./movie.html?id=${movieInfo.id}`;
       })
@@ -90,7 +92,6 @@ const movieList = [
   {id: 34, title: 'Ballerina', year: '2023'},
   {id: 35, title: 'Kill Boksoon', year: '2023'},
   {id: 36, title: 'the killer', year: '2022'},
-  {id: 37, title: 'the call', year: '2020'},
   {id: 38, title: 'Along With the Gods: The Two Worlds', year: '2017'},
   {id: 39, title: 'Along With the Gods: The Last 49 Days', year: '2018'},
   {id: 40, title: 'The Age of Shadows', year: '2016'},
@@ -139,11 +140,63 @@ const movieList = [
   {id: 83, title: 'Missing Woman', year: '2016'},
   {id: 84, title: 'The Outlaws', year: '2017'},
   {id: 85, title: 'The Neighbors', year: '2012'},
+  {id: 86, title: 'Heart Blackened', year: '2017'},
+  {id: 87, title: 'Hostage: Missing Celebrity', year: '2021'},
+  {id: 88, title: 'I Can Speak', year: '2017'},
+  {id: 89, title: 'Intimate Strangers', year: '2018'},
+  {id: 90, title: 'Love and Leashes', year: '2022'},
+  {id: 91, title: 'The Face Reader ', year: '2013'},
+  {id: 92, title: 'The Vanished', year: '2018'},
+  {id: 93, title: 'The Client', year: '2011'},
 ];
 
 
 localStorage.setItem('movieList', JSON.stringify(movieList));
+const totalPages = Math.ceil(movieList.length / itemPerPage);
 
-if(main) {
-  displayMovies(movieList, main)};
 
+
+const handlePaginationClick = (pageNumber) => {
+  main.innerHTML = ''; // Clear previous movies
+  currentPage = pageNumber;
+  displayMovies(movieList, currentPage);
+};
+
+const renderPagination = () => {
+  const paginationElement = document.querySelector('.pagination-container');
+  paginationElement.innerHTML = '';
+
+  for (let i = 1; i <= totalPages; i++) {
+    const pageButton = document.createElement('button');
+    pageButton.textContent = i;
+    pageButton.classList.add('page-button');
+
+    if (i === 1) {
+      pageButton.classList.add('current-page');
+    }
+
+    pageButton.addEventListener('click', (event) => {
+      const allPageButtons = document.querySelectorAll('.page-button');
+
+      // Retirer la classe 'current-page' de tous les boutons
+      allPageButtons.forEach(button => {
+        button.classList.remove('current-page');
+      });
+
+      // Ajouter la classe 'current-page' au bouton cliqué
+      event.target.classList.add('current-page');
+
+      // Afficher les films de la page correspondante
+      main.innerHTML = '';
+      currentPage = i;
+      displayMovies(movieList, currentPage);
+    });
+
+    paginationElement.appendChild(pageButton);
+  }
+};
+
+
+
+displayMovies(movieList, currentPage);
+renderPagination();
