@@ -18,10 +18,11 @@ body {
 a {
   color: #201f1f;
   text-decoration: none;
+  transition: all 0.2s;
 }
 
 a:hover {
-  color: #1c0b6a;
+  color: #beccff;
   text-decoration: none;
 }
 
@@ -34,10 +35,13 @@ h1 {
   color: #201f1f;
   text-align: center;
   text-transform: uppercase;
+  font-size: 3rem;
+  padding: 50px;
 }
 
-.title {
+.title, .title:hover {
   color: #3e64ff;
+  text-decoration:underline;
 }
 
 .movies-container {
@@ -82,15 +86,16 @@ span {
 
 footer ul {
   font-size: 1.5rem;
-  padding: 50px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-footer ul, h1 {
-  padding: 50px;
-} 
+footer a:hover {
+  color: #3e64ff;
+}
+
 
 @media only screen and (max-width: 1024px ) {
   .movies-container {
@@ -99,6 +104,10 @@ footer ul, h1 {
 }
 
 @media only screen and (max-width: 768px ) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
   .movies-container {
     grid-template-columns: repeat(2, 1fr);
   }
